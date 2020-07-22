@@ -4,3 +4,4 @@
 Learning Vanilla-Redux and React-Redux
 
 https://geonlee.tistory.com/32 : npx 
+https://velopert.com/241 : global module 설치 시 link해 줘야 함
