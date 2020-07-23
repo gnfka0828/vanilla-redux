@@ -8,6 +8,9 @@ const number = document.querySelector("span");
 
 number.innerText = 0;
 
+const ADD = "ADD";
+const MINUS = "MINUS";
+
 // Data를 바꾸고 Modifiy하는 것을 책임짐.(Modify의 의미를 찾고 수정함)  
 // reducer나 modifier는 처음으로 Data를 변경해 줌.
 // return 값 : Application의 Data
@@ -16,14 +19,16 @@ number.innerText = 0;
 const countModifier = (count = 0, action) => {
     // ... modify state
 
-    if ( action.type === "ADD" ) {
-        return count + 1 ;
-    }
-    else if ( action.type === "MINUS" ) {
-        return count - 1 ;
-    }
-    else {
-        return count ;
+    // Refactor 
+    // 1. Reducer에 if문 대신 switch문 사용
+    // 2. action type을 미리 선언하여 사용(틀리게 입력 시 오류가 나서 알 수 있게 됨, 안전)
+    switch (action.type) {
+        case ADD:
+            return count + 1;
+        case MINUS:
+            return count - 1;
+        default:
+            return count;
     }
 };
 
@@ -37,11 +42,11 @@ const onChange = () => {
 countStore.subscribe(onChange);
 
 const handleAdd = () =>{
-    countStore.dispatch({ type: "ADD" });
+    countStore.dispatch({ type: ADD });
 }
 
 const handleMinus = () =>{
-    countStore.dispatch({ type: "MINUS" });
+    countStore.dispatch({ type: MINUS });
 }
 
 // 두번째 인자로 function을 줘야 한다.
