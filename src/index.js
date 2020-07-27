@@ -8,6 +8,20 @@ const ul = document.querySelector("ul");
 const ADD_TODO = "ADD_TODO";
 const DELETE_TODO = "DELETE_TODO";
 
+const addToDo = text => {
+    return {
+      type: ADD_TODO,
+      text
+    };
+};
+  
+const deleteToDo = id => {
+    return {
+        type: DELETE_TODO,
+        id
+    };
+};
+
 // Data를 바꾸고 Modifiy하는 것을 책임짐.(Modify의 의미를 찾고 수정함)  
 // reducer나 modifier는 처음으로 Data를 변경해 줌.
 // return 값 : Application의 Data
@@ -34,11 +48,37 @@ const store = createStore(reducer);
 
 store.subscribe(() => console.log(store.getState()));
 
+const dispatchAddToDo = text => {
+    store.dispatch(addToDo(text));
+};
+  
+const dispatchDeleteToDo = e => {
+    const id = e.target.parentNode.id;
+    store.dispatch(deleteToDo(id));
+};
+  
+const paintToDos = () => {
+    const toDos = store.getState();
+    ul.innerHTML = "";
+    toDos.forEach(toDo => {
+      const li = document.createElement("li");
+      const btn = document.createElement("button");
+      btn.innerText = "DEL";
+      btn.addEventListener("click", dispatchDeleteToDo);
+      li.id = toDo.id;
+      li.innerText = toDo.text;
+      li.appendChild(btn);
+      ul.appendChild(li);
+    });
+};
+  
+store.subscribe(paintToDos);
+
 const onSubmit = e => {
     e.preventDefault();
     const toDo = input.value;
     input.value = "";
-    store.dispatch({ type: ADD_TODO, text: toDo });
+    dispatchAddToDo(toDo);
 };
 
 // 두번째 인자로 function을 줘야 한다.
