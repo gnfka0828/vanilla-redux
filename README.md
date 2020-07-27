@@ -22,3 +22,5 @@ https://ismydream.tistory.com/98 : event.stopPropagation(), event.preventDefault
 https://medium.com/@khwsc1/event-preventdefault-%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%B7%A8%EC%86%8C-%EB%B0%A9%EB%B2%95-71d1343baac : onSubmit 기본 기능(Refresh)을 막는 방법
 
 https://enfanthoon.tistory.com/133 : onSubmit Refresh 사례
+
+https://velopert.com/1266 : React-Redux
