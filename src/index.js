@@ -37,15 +37,19 @@ const reducer = (state = [], action) => {
         case ADD_TODO:
             return [...state, { text: action.text, id: Date.now() }];
         case DELETE_TODO:
-             return [];
+            return state.filter(toDo => toDo.id !== parseInt(action.id)) 
         default:
-             return state;
+            return state;
     }
 };
 
 // reducer를 initial state로 불러옴. => state 기본값 지정 가능
 const store = createStore(reducer);
 
+// 스토어를 구독할 때는 subscribe 함수를 사용하는데, 이 함수는 함수 형태의 파라미터를 받는다.
+// 파라미터로 전달된 함수는 스토어 상태에 변화가 일어날 때마다 호출한다.
+// 이 subscribe 함수가 호출되면 반환 값으로 구독을 취소하는 unsubscribe 함수를 반환한다.
+// 나중에 구독을 취소해야 할 때는 unsubscribe()를 입력하여 호출하면 된다.
 store.subscribe(() => console.log(store.getState()));
 
 const dispatchAddToDo = text => {
@@ -53,7 +57,7 @@ const dispatchAddToDo = text => {
 };
   
 const dispatchDeleteToDo = e => {
-    const id = e.target.parentNode.id;
+    const id = parseInt(e.target.parentNode.id);
     store.dispatch(deleteToDo(id));
 };
   
