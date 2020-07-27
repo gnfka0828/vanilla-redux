@@ -35,9 +35,11 @@ const reducer = (state = [], action) => {
     // 2. action type을 미리 선언하여 사용(틀리게 입력 시 오류가 나서 알 수 있게 됨, 안전)
     switch (action.type) {
         case ADD_TODO:
-            return [...state, { text: action.text, id: Date.now() }];
+            const newToDoObj = { text: action.text, id: Date.now() };
+            return [newToDoObj, ...state];
         case DELETE_TODO:
-            return state.filter(toDo => toDo.id !== parseInt(action.id)) 
+            const cleaned = state.filter(toDo => toDo.id !== action.id);
+        return cleaned;
         default:
             return state;
     }
