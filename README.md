@@ -33,3 +33,7 @@ Add 버튼 클릭 시 동작:
 
 Delete 버튼 클릭 시 동작: 
 1) onClick 함수 실행 => onBtnClick 함수 실행 => mapDispatchToProps 함수에 지정된 onBtnClick 함수로 인해 actionCreaters의 deleteToDo 함수를 이용하여 action 객체 생성 후, dispatch된다. => reducer에 의해 store 내의 state가 갱신된다.
+
+https://john015.netlify.app/react-router-v-5-1-%EB%AC%B4%EC%97%87%EC%9D%B4-%EB%8B%AC%EB%9D%BC%EC%A1%8C%EC%9D%84%EA%B9%8C : React-Router 객체 설명
+
+https://dev-momo.tistory.com/entry/Javascript-Optional-Chaining : Javascript Optional Chaining
