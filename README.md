@@ -24,3 +24,12 @@ https://medium.com/@khwsc1/event-preventdefault-%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%
 https://enfanthoon.tistory.com/133 : onSubmit Refresh 사례
 
 https://velopert.com/1266 : React-Redux
+
+https://kamang-it.tistory.com/entry/React-12react-redux%EB%A1%9C-redux%EB%8D%94-%EC%A7%81%EA%B4%80%EC%A0%81%EC%9D%B4%EA%B2%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0 : ownProps 설명
+
+Add 버튼 클릭 시 동작: 
+1) onChange 함수 실행 => setText(text) 함수 실행 => component 내의 state 변경, mapStateToProps 함수로 인해 toDos: state가 Home Component의 Props로 들어간다.
+2) onSubmit 함수 실행 => addToDo(text) 함수 실행 => mapDispatchToProps 함수에 지정된 addToDo 함수로 인해 actionCreaters의 addToDo 함수를 이용하여 action 객체 생성 후, dispatch된다. => reducer에 의해 store 내의 state가 갱신된다.
+
+Delete 버튼 클릭 시 동작: 
+1) onClick 함수 실행 => onBtnClick 함수 실행 => mapDispatchToProps 함수에 지정된 onBtnClick 함수로 인해 actionCreaters의 deleteToDo 함수를 이용하여 action 객체 생성 후, dispatch된다. => reducer에 의해 store 내의 state가 갱신된다.
