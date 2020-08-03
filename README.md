@@ -37,3 +37,5 @@ Delete 버튼 클릭 시 동작:
 https://john015.netlify.app/react-router-v-5-1-%EB%AC%B4%EC%97%87%EC%9D%B4-%EB%8B%AC%EB%9D%BC%EC%A1%8C%EC%9D%84%EA%B9%8C : React-Router 객체 설명
 
 https://dev-momo.tistory.com/entry/Javascript-Optional-Chaining : Javascript Optional Chaining
+
+https://jbee.io/react/introduce-redux-starter-kit/ : redux-toolkit
