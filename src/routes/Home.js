@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { actionCreators } from "../store";
+import { add } from "../store";
 import Todo from "../components/Todo";
 
 function Home({ toDos, addToDo }) {
@@ -42,7 +42,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
       // addToDo 함수를 만들어 전달 : text라는 변수를 받아 actionCreators.addToDo 함수에 넣어 action 객체를 만들어 dispatch.
-      addToDo: text => dispatch(actionCreators.addToDo(text))
+      addToDo: text => dispatch(add(text))
     };
   }
 
